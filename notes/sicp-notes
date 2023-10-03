@@ -42,3 +42,8 @@ call-by-name  <=====> normal-order evaluation
 
 applicative-order evaluation -> "evaluate the arguments and then apply"
 normal-order evaluation -> "fully expand and then reduce"
+
+TODO:
+SICP describe linear recursion and linear iterative process
+SICP describe bound variables and free variables
+SICP describe lambda semantics and let semantics
