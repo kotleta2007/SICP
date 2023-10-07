@@ -4,6 +4,15 @@
 \usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
 \usepackage{xcolor}
 
+% bibliography
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+
 \title{SICP notes}
 \author{Mark Tropin}
 \date{September-October 2023}
@@ -16,7 +25,8 @@
 \noindent
 {\color{red} \rule{\linewidth}{0.5mm}}
 
-\textcolor{red}{\textbf{DISCLAIMER: This is not a summary of SICP (Structure and Interpretation of Computer Programs). These are my personal notes, i.e. non-obvious things mentioned in the book that I find interesting.}}
+\textcolor{red}{\textbf{DISCLAIMER: This is not a summary of Structure and Interpretation of Computer Programs \cite{sicp}. These are my personal notes, 
+i.e. non-obvious things mentioned in the book that I find interesting.}}
 
 \noindent
 {\color{red} \rule{\linewidth}{0.5mm}}
@@ -47,7 +57,7 @@ It is important to note that:
  
 	$\Longrightarrow$ "value" means primitive. "value" means irreducible.
  
-		No more evaluation rules apply. See TAPL theorems 3.5.7, 3.5.8.
+		No more evaluation rules apply. See theorems 3.5.7, 3.5.8 in \cite{tapl}.
  
     \end{itemize}
 \end{itemize}
@@ -84,13 +94,39 @@ In Scala we have \textit{call-by-name} and \textit{call-by-value}.
     \item[$\circ$] normal-order evaluation $\Rightarrow$ "fully expand and then reduce"
 \end{itemize}
 
-\noindent
-\textbf{TODO:}
-\begin{itemize}
-    \item describe linear recursion and linear iterative process
-    \item describe bound variables and free variables
-    \item describe lambda semantics and let semantics
-    \item describe interesting footnote at the end of the chapter
-\end{itemize}
+\subsection*{Bound variables and free variables}
+TODO section 1.1.8
+
+\subsection*{Linear recursion and iteration}
+
+TODO section 1.2.1
+
+If the iterative process is interrupted, we can resume computation given the last recorded state. This is impossible for recursion. Iteration does not require the use of auxiliary memory, recursive processes require a stack.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+         \hline
+         Type of process & Time complexity & Space complexity \\
+         \hline
+         Linear recursive process & $\mathcal{O}(n)$ & $\mathcal{O}(n)$ \\
+         \hline
+         Linear iterative process & $\mathcal{O}(n)$ & $\mathcal{O}(1)$ \\
+         \hline
+    \end{tabular}
+    \caption{Recursion \& Iteration.}
+    \label{tab:rec_iter}
+\end{table}
+
+\subsection*{\texttt{Lambda} semantics and \texttt{let} semantics}
+TODO section 1.3.2
+
+\subsection*{Functions as first-class citizens}
+
+TODO p.77, footnote 66
+
+
+
+\printbibliography
 
 \end{document}
