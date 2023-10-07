@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{xcolor}
+
+\title{SICP notes}
+\author{Mark Tropin}
+\date{September-October 2023}
+
+\begin{document}
+\large
+
+\maketitle
+
+\noindent
+{\color{red} \rule{\linewidth}{0.5mm}}
+
+\textcolor{red}{\textbf{DISCLAIMER: This is not a summary of SICP (Structure and Interpretation of Computer Programs). These are my personal notes, i.e. non-obvious things mentioned in the book that I find interesting.}}
+
+\noindent
+{\color{red} \rule{\linewidth}{0.5mm}}
+
+\section*{Chapter 1.}
+
+To evaluate a combination,
+\begin{itemize}
+    \item evaluate the operator
+    \item evaluate the operands
+    \item apply the operator to the operands
+\end{itemize}
+
+\noindent
+It is important to note that:
+\begin{itemize}
+    \item EVALUATE is recursive.
+    \begin{itemize}
+        \item We evaluate the operator and the operands using the same logic.
+    \end{itemize}
+    \item EVALUATE means "reduce to a value".
+    \begin{itemize}
+        \item Operators are reduced to built-in instructions ($\oplus$, $\otimes$, $\dots$)
+	that correspond to machine instructions (CPU instruction set).
+	Operands are reduced to numeric values
+	(by applying operators to combinations or
+	looking up their value in the environment).
+ 
+	$\Longrightarrow$ "value" means primitive. "value" means irreducible.
+ 
+		No more evaluation rules apply. See TAPL theorems 3.5.7, 3.5.8.
+ 
+    \end{itemize}
+\end{itemize}
+
+\noindent
+p.12, footnote 14: 
+
+	This is how \texttt{let} works. \texttt{Let} basically adds a new symbol
+	to the \textit{local} environment. It is used in evaluating the
+	final expression in a block of code. This value	
+	(because it is local) is then destroyed.
+
+\noindent
+End of section 1.1.4:
+	You can't tell a user-defined compound procedure from a primitive.
+	That is the function of the environment: to make user-defined 
+	definitions usable like primitives. It is essentially
+	abstracting away definitions by \textit{pointing} to them via names.
+
+\subsection*{Evaluation strategies.}
+
+Section 1.1.5 defines normal-order evaluation and applicative-order evaluation.
+
+\noindent
+In Scala we have \textit{call-by-name} and \textit{call-by-value}.
+
+\begin{itemize}
+    \item call-by-value $\Longleftrightarrow$ applicative-order evaluation
+    \item call-by-name $\Longleftrightarrow$ normal-order evaluation
+\end{itemize}
+
+\begin{itemize}
+    \item[$\circ$] applicative-order evaluation $\Rightarrow$ "evaluate the arguments and then apply"
+    \item[$\circ$] normal-order evaluation $\Rightarrow$ "fully expand and then reduce"
+\end{itemize}
+
+\noindent
+\textbf{TODO:}
+\begin{itemize}
+    \item describe linear recursion and linear iterative process
+    \item describe bound variables and free variables
+    \item describe lambda semantics and let semantics
+    \item describe interesting footnote at the end of the chapter
+\end{itemize}
+
+\end{document}
