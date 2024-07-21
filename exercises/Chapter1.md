@@ -12,3 +12,4 @@
 * Exercise 1.30: [[1-30.scm]]
 * Exercise 1.31: [[1-31.scm]]
 * Exercise 1.32: [[1-32.scm]]
+* Exercise 1.35: [[1-35.scm]]
